@@ -1,2 +1,2 @@
 # webpublish
-HTML, CSS, JavaScript stury
+HTML, CSS, JavaScript study
