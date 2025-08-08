@@ -1,3 +1,7 @@
+## !! 크로스 브라우징(Cross Browsing) 
+- 작성한 UI(HTML) 페이지를 모든 브라우저에서 동일한 모습으로 출력
+
+
 ## 1. HTML(HyperText Markup Language)
 - 팀 버너스 개발, W3C에서 HTML 버전 등 관리
 - 태그로 불리우며, 시작태그<>, 종료태그</>로 구성
@@ -85,6 +89,13 @@
 - 사용자가 데이터를 입력하는 태그
 - input, botton, radio, checkbox 등 ...
 - 사용자가 입력한 데이터를 백엔드로 전송하는 방법을 반드시 숙지!!!
+
+## 13. 비디오태그
+- video, iframe 태그 등 ..
+
+
+
+
 
 - font awesome 사이트 무료 아이콘 CDN
   <link
