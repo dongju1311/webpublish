@@ -26,6 +26,8 @@
         }
         .margin{
             border: 1px solid red;
+            /* margin 박스 기준으로 margin을 할경우 박스 밖의 크기 설정 */
+            /* margin 박스 기준으로 padding을 사용할 경우 박스 내의 컨텐츠의 크기 설정 */
             margin-left: 50px;
             padding-left: 50px;
         }
@@ -39,6 +41,7 @@
         }
         .inline span{
             border: 2px solid tomato;
+            /* 부모 크기를 넘으므로 overflow 발생! */
             padding: 20px; /* inline에서 적용 가능!! */
             /* margin: 20px; inline에서는 left만 적용 가능!! display: inline-block; 수정필요!!! */
         }

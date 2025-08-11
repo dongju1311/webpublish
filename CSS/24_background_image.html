@@ -7,14 +7,15 @@
     <style>
         body{
             background-image: url("https://www.lottecinema.co.kr/NLCHS/Content/images/common/logo.png");
+            /* 작은 이미지 반복 실행 안할 때! 기본값은 반복실행으로 화면 채워짐 */
             background-repeat: no-repeat;
+            /* 백그라운드 이미지 스크롤하더라도 고정시킬때 */
             background-attachment: fixed;
+            /* 가로 세로=> 오른쪽으로 갈수록 100%, 아래로 갈수록 100% */
             background-position: 50% 50%;
             background-size: 200px;
         }
-        img{
-            width: 150px;
-        }
+        img{width: 150px;}
         div{
             width: 30%;
             height: 300px;
@@ -25,9 +26,7 @@
             background-color: aquamarine;
             /* opacity: .5; */
         }
-        .img2{
-            background-image: url(../image/backimg1.jpg);
-        }
+        .img2{background-image: url(../image/backimg1.jpg);}
     </style>
 </head>
 <body>
