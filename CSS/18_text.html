@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Align</title>
+    <style>
+        p{background-color: aquamarine; text-align: center;}
+        span{background-color: tomato; text-align: left; text-transform: uppercase;} 
+        .left{text-align: left; text-transform: lowercase;}
+        .center{text-align: center;}
+        .right{text-align: right;}
+        .justify{text-align: justify; width: 50%; line-height: 30px;}
+        .letter{width: 700px; border: 1px solid blue; letter-spacing: 5px; text-indent: 30px;}
+        .word{width: 700px; border: 1px solid green; word-spacing: 15px; text-indent: -20px;}
+    </style>
+</head>
+<body>
+    <h1>Text Align</h1>
+    <!-- inlin level은 크기 만큼 한 문자로 인식 되기 때문에 text-align을 주더라도 위치 변경 X -->
+    <span>inline lever - span</span> <br>
+    <p class="left">Text Align - left</p>
+    <p class="center">Text Align - center <span>Add span</span></p> 
+    <p class="right">Text Align - right</p>
+    <p class="justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum animi magni exercitationem nihil eveniet. Obcaecati fuga ipsam aut natus dolore minus, quod quidem. Ullam dolores ex nesciunt aliquam ipsum temporibus!</p>
+    <p class="letter">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum animi magni exercitationem nihil eveniet. Obcaecati fuga ipsam aut natus dolore minus, quod quidem. Ullam dolores ex nesciunt aliquam ipsum temporibus!</p>
+    <p class="word">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum animi magni exercitationem nihil eveniet. Obcaecati fuga ipsam aut natus dolore minus, quod quidem. Ullam dolores ex nesciunt aliquam ipsum temporibus!</p>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overflow</title>
+    <style>
+        .d1, .p1{border: 1px solid red;}
+        .d1{
+            width: 50%;
+            height: 100px;
+            background-color: aquamarine;
+            /* auto를 사용해서 넘치는 공간을 스크롤로 활용가능 */
+            overflow: auto;
+        }
+        .p1{
+            width: 120%;
+            background-color: yellow;
+            
+        }
+    </style>
+</head>
+<body>
+    <h1>Overflow</h1>
+    <div class="d1">
+        <p class="p1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde sint est ab ratione a recusandae voluptatem, repudiandae sed quisquam eveniet ea et, aliquid excepturi exercitationem voluptates sit voluptatum dolorem quaerat.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde sint est ab ratione a recusandae voluptatem, repudiandae sed quisquam eveniet ea et, aliquid excepturi exercitationem voluptates sit voluptatum dolorem quaerat.  
+        </p>
+    </div>
+</body>
+</html>
