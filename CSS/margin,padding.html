@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Padding vs Margin</title>
+<style>
+    body {
+        background-color: #f5f5f5;
+        font-family: sans-serif;
+    }
+
+    .box {
+        background-color: #4cafef;
+        color: white;
+        font-weight: bold;
+        border: 4px solid navy;
+    }
+
+    /* 패딩 예제 */
+    .padding-box {
+        padding: 30px; /* 안쪽 여백 */
+        margin: 20px 0; /* 위아래 여백 */
+    }
+
+    /* 마진 예제 */
+    .margin-box {
+        padding: 0; /* 안쪽 여백 없음 */
+        margin: 30px; /* 바깥 여백 */
+    }
+
+    .wrapper {
+        background-color: #ddd;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+</style>
+</head>
+<body>
+
+<h1>Padding vs Margin 차이</h1>
+
+<div class="wrapper">
+    <p>🟦 아래 박스는 <b>padding</b>이 커서 내용과 테두리 사이에 넓은 공간이 있습니다.</p>
+    <div class="box padding-box">나는 패딩 박스</div>
+</div>
+
+<div class="wrapper">
+    <p>🟦 아래 박스는 <b>margin</b>이 커서 박스 바깥쪽이 멀리 떨어져 있습니다.</p>
+    <div class="box margin-box">나는 마진 박스</div>
+</div>
+
+</body>
+</html>
