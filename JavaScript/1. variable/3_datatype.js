@@ -11,19 +11,19 @@
 
 //1. 정수형
 let inumber = 100;
-console.log("정수형-->", inumber);
+console.log("정수형-->", inumber, typeof inumber);
 
 //2. 실수형
 let fnumber = 3.14;
-console.log("실수형 ->", fnumber);
+console.log("실수형 ->", fnumber, typeof fnumber );
 
 //3.문자형
 let cname = "홍길동";
-console.log("문자형-->", cname);
+console.log("문자형-->", cname, typeof cname);
 
 //4.불린형
 let flag = true;
-console.log("불린형-->", flag);
+console.log("불린형-->", flag, typeof flag);
 
 //5.객체형
 let nameList = ["홍길동","이순신","김유신"];
