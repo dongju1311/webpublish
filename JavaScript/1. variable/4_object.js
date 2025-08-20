@@ -1,6 +1,6 @@
 /**
  * 객체형
- * Class, Array([]), Object({})
+ * Class: Array([]), Object({})
  * Array 형식 : [데이터1, 데이터2 ...]
  * Object 형식 : {
  *  프로퍼티: 데이터,
@@ -10,6 +10,7 @@
  * }
  */
 
+//Object
 let apple = null;
 apple = {
     // 'name' : 'apple',
@@ -23,7 +24,7 @@ console.log(apple.name);
 console.log(apple.color);
 console.log(apple.emoji);
 
-//orange 객체 정의 및 생성
+//orange 객체 정의 및 생성S
 let orange = {
     name  : 'orange',
     color : "coral",
