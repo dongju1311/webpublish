@@ -2,7 +2,9 @@ let name = '홍길동';
 let age = 20;
 
 const person = {
-    name, age //key = value 이름이 동일!!
+    // this.name = name;
+    // this.age = age;
+    name, age //key = value 이름이 동일할경우 생략 가능!
 };
 
 console.log(person);
@@ -12,7 +14,11 @@ console.log(person.age);
 let x = 0;
 let y = 0;
 
-const number = { x,y };
+const number = {
+    // this.x = x;
+    // this.y = y;
+    x,y //생략가능!
+};
 console.log(number);
 
 // 사원들의 정보를 입력받아 객체를 생성하는 함수 정의

@@ -3,8 +3,8 @@
 
 class Employee{
     #empno;
-    constructor(empNo,name,age){
-        this.#empno = empNo;
+    constructor(empno,name,age){
+        this.#empno = empno;
         this.name = name;
         this.age = age;
     }

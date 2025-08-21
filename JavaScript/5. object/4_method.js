@@ -1,7 +1,8 @@
 /**
  * 객체를 생성하는 함수 : 생성자 함수
- * 일반함수를 정의하는 형식ㅇ로 사용해야 함!!!
+ * 일반함수를 정의하는 형식으로 사용해야 함!!!
  */
+//객체 리터럴
 const fruits = {
     //field
     name: 'apple',
@@ -19,8 +20,11 @@ fruits.display(); //()를 넣지 않을 경우 주소값만 콘솔에 찍음
 console.log(fruits.getName());
 console.log(fruits.getEmoji);
 
+console.log();
+
+
 //생성자 함수
-function Apple(name,emoji ) {
+function Apple(name,emoji) {
     this.name = name;
     this.emoji = emoji;
 
