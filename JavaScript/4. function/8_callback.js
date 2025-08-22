@@ -1,13 +1,14 @@
 /**
  * callback(콜백함수) : 함수의 파라미터로 입력되는 익명함수
  */
+// 동기식 콜백
 const job = (a,b,callback) => { //a=1, b=2, callback = pring 함수 주소값
     callback(a,b);
 }
 const print = (a,b) => {
     console.log(a,b);    
 }
-job(1,2,print); //동기식
+job(1,2,print);
 
 //setTimeout 함수 호출 - 비동기식
 //setTimeout은 비동기식 처리를 하므로, 백그라운드에 저장된 후 

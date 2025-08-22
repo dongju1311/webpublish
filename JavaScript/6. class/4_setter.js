@@ -38,6 +38,7 @@ hong.display();
 console.log(hong.getObject());
 
 let empList = [];
+//empList에 값 넣기
 empList.push(hong.getObject());
 empList.push(park.getObject());
 console.log(empList);

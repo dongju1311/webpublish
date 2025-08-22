@@ -25,6 +25,7 @@ const add3 = function (a,b) {
 //4. 콜백 함수
 let numbers = [1,2,3,4,5];
 let sum = numbers.reduce((acc,cur) => {return acc + cur});
+//한줄일 경우 return 생략가능!!
 let sum2 = numbers.reduce((acc,cur) => acc + cur);
 
 //함수 호출
