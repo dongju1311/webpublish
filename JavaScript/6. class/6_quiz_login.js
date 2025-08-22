@@ -16,7 +16,7 @@ class User {
     setPass = (pass) => this.#pass = pass;
 
     display = () => {
-        console.log(this.#id, this.#pass);
+        console.log(this.#id(), this.#pass());
     }
 }
 

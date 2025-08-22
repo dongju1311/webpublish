@@ -1,4 +1,4 @@
-class Login {
+class Member {
     #id;
     #pwd;
     constructor(id,pwd) {
@@ -9,12 +9,91 @@ class Login {
     getPwd = () => this.#pwd;
 
     setId = (id) => this.#id = id;
-    setPwd = (pwd) => this.#pwd = pwd;
-
-    display = () => console.log(this.getId,this.getPwd);        
+    setPwd = (pwd) => this.#pwd = pwd;;    
+    
+    display = () => console.log(this.getId,this.getPwd);
 }
 
+class JoinMember extends Member{
+    constructor(id,pwd,name,phone,emailname,emaildomain){
+        super(id,pwd);
+        this.name = name;
+        this.phone = phone;
+        this.emailname = emailname;
+        this.emaildomain = emaildomain;
+    }
+    display = () => console.log(
+        this.getId(),
+        this.getPwd(),
+        this.name,
+        this.phone,
+        this.emailname,
+        this.emaildomain
+    );
+}
+
+/**
+ * 로그인 처리 함수(login)
+ */
+function loginCheck() {
+    const id = document.querySelector('#id');
+    const pwd = document.querySelector('#pwd');
+    let member = null;
+    if(id.value === ''){
+        alert('아이디를 입력해주세요');
+        id.focus();
+    } else if(pwd.value === ''){
+        alert('패드워드를 입력해주세요');
+        pwd.focus();
+    } else {
+        console.log(id.value,pwd.value);
+        member = new Member(id.value,pwd.value);
+        member.display();
+    }    
+}
+/**
+ * 회원가입 처리 함수(join)
+ */
 function signupCheck() {
-    console.log('로그인완료!');
-    
+    const id = document.querySelector('#id');
+    const pwd = document.querySelector('#pwd');
+    const cpwd = document.querySelector('#cpwd');
+    const name = document.querySelector('#name');
+    const phone = document.querySelector('#phone');
+    const emailname = document.querySelector('#emailname');
+    const emaildomain = document.querySelector('#emaildomain');
+    let member = null;
+
+    if(id.value === ''){
+        alert('아이디를 입력해주세요');
+        id.focus();
+    } else if(pwd.value === ''){
+        alert('패스워드를 입력해주세요');
+        pwd.focus();
+    } else if(cpwd.value === ''){
+        alert('패스워드를 재입력해주세요');
+        cpwd.focus();
+    } else if(name.value === ''){
+        alert('이름을 입력해주세요');
+        name.focus();
+    } else if(phone.value === ''){
+        alert('전화번호를 입력해주세요')
+        phone.focus();
+    } else if(emailname.value === ''){
+        alert('이메일 주소를 입력해주세요')
+        emailname.focus();
+    } else if(emaildomain.value === 'default'){
+        alert('이메일 도메인을 선택해주세요')
+        emaildomain.focus();
+    } else {
+        //서버전송
+        // console.log(id.value,pwd.value,cpwd.value,name.value,phone.value,emailname.value,emaildomain.value);
+        member = new JoinMember(id.value,
+                                pwd.value,
+                                name.value,
+                                phone.value,
+                                emailname.value,
+                                emaildomain.value);
+        member.display();
+    }
 }
