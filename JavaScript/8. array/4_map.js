@@ -21,6 +21,7 @@ let numbers2 = numbers.map((item)=>{return item*100});
 numbers2.forEach((item)=>{console.log(item);});
 
 //object 요소 중 이름이 '이순신'인 객체를 새로운 배열 객체로 생성
+//map은 원본 배열 길이 유지, 각 요소를 변환할 때 사용하기 때문에 빈객체로 생성됨.
 let objects2 = objects.map((item)=>{
     let resultItem = {};
     if(item.name === '이순신'){

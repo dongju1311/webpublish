@@ -29,7 +29,6 @@ console.log(fruits);
 //4. 배열 요소 추출 : slice(시작주소, 종료주소), 새로운 배열 객체 리턴
 console.log(fruits.slice(3)); //인덱스 3부터 마지막까지
 //4-1. 얕은 복사(Shallow Copy) : 별도의 독립된 객체로 생성
-console.clear();
 let f1 = ['🍎','🍊','🍋'];
 let f1_copy = f1.slice();
 let f1_copy2 = [...f1]; //...(spread operator : 전개구문)
