@@ -7,6 +7,15 @@ let objects = [
     {name: '이순신', age: 20},
     {name: '김유신', age: 30},
 ];
+let fruits = new Array('🍎','🍊','🍋','🍏','🍑','🍋');
+
 //object 요소 중 이름이 '이순신'인 객체를 새로운 배열 객체로 생성
 let obj = objects.filter((item)=>{return item.name === '이순신'});
 console.log(obj);
+
+const searchCount = (array,item) => {
+    return array.filter((sitem)=>sitem === item).length;
+    // let result = array.filter((sitem)=>{return sitem === item;});
+    // return result.length;
+}
+console.log(`count => ${searchCount(fruits,'🍋')}`);
