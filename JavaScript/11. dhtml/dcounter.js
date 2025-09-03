@@ -28,5 +28,4 @@ function initForm() {
             console.log(number,type);
         });
     });
-
 }
