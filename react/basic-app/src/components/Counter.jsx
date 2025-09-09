@@ -1,7 +1,7 @@
 //자식
 import { useState } from "react";
 
-export function Counter({click, total}){
+export function Counter({click, total, init}){
     const [number,setNumber] = useState(0);
 
     const handleClickIncrement = () => {
@@ -19,7 +19,7 @@ export function Counter({click, total}){
     }
     const handleClickInit = () => {
         setNumber(0);
-        click(0);
+        click(init);
     }
     
     return(
