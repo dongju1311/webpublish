@@ -1,4 +1,3 @@
-
 export function MyTitle(){
     return(
         // <h1 style={{color:"colar"}}>Hello~ React App!!</h1>
