@@ -1,15 +1,7 @@
 import { useState } from "react";
 import { Menu } from "./Menu.jsx";
 
-export function MenuList() {
-    const menus = [
-        {"href":"#home", "name":"Home"},
-        {"href":"#about", "name":"About"},
-        {"href":"#skill", "name":"Skills"},
-        {"href":"#mywork", "name":"Mywork"},
-        {"href":"#testimonial", "name":"Testimonials"},
-        {"href":"#contact", "name":"Contact"}
-    ];
+export function MenuList({menus}) {
     const [active, setActive] = useState('Home');
     const handleClick = (name) => { //자식에게 전송하는 props 이벤트 핸들러 함수
         setActive(name);
