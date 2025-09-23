@@ -1,5 +1,6 @@
 import React,{useState, useEffect} from 'react';
 import { axiosData } from '../../utils/dataFetch';
+import { CiLock } from "react-icons/ci";
 
 export function QnA() {
     const[qnaData,setQnaData] = useState([]);
@@ -45,7 +46,7 @@ export function QnA() {
                         <td style={{width:"60%"}}>
                             <span style={{cursor:"pointer"}}
                                   onClick={()=>{handleToggle(item.qid)}}>{item.title}</span>
-                            {item.isLock && <span>비밀글</span>}
+                            {item.isLock && <CiLock/>}
                             {openQid === item.qid && <span>{item.content}</span>}
                         </td>
                         <td style={{width:"15%"}}>{item.id}</td>
