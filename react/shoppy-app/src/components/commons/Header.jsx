@@ -1,9 +1,15 @@
 import { Link } from "react-router-dom";
 import { FiShoppingBag } from "react-icons/fi";
 import { GiShoppingCart } from 'react-icons/gi';
+import { useEffect } from "react";
 
 
 export function Header({cartCount}) {
+
+    // useEffect(()=>{
+    //     const loginInfo = localStorage.getItem("loginInfo");
+    //     console.log(JSON.parse(loginInfo)); //문자열을 JSON 객체로 변환
+    // },[]);
 
     return(
         <div className="header-outer">
@@ -23,6 +29,9 @@ export function Header({cartCount}) {
                     </Link>
                     <Link to="/signup">
                         <button type="button">Signup</button>
+                    </Link>
+                    <Link to="/support">
+                        <button type="button">Support</button>
                     </Link>
                 </nav>
             </div>

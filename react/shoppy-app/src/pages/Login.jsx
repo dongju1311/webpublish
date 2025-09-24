@@ -1,9 +1,12 @@
 import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FaLock } from "react-icons/fa";
 import { RxAvatar } from "react-icons/rx";
 import { validateFormCheck } from "../utils/validate.js"
+import { Link } from "react-router-dom";
 
 export function Login() {
+    const navigate = useNavigate();
     const idRef = useRef(null);
     const pwdRef =useRef(null);
     // const initForm = {id:"", pwd:""}
@@ -40,7 +43,21 @@ export function Login() {
             errors: errors
         }
         if(validateFormCheck(param)){
-            console.log(formData);
+            // console.log(formData);
+            const did = "test";
+            const dpwd = "1234";
+            if(did === formData.id && dpwd === formData.pwd){
+                alert('로그인 성공하셨습니다');
+                const loginInfo = {
+                    "userId" : formData.id,
+                    "token" : "asdasd12354"
+                }
+                // localStorage.setItem("loginInfo", JSON.stringify(loginInfo)); //JSON 객체를 문자형태로 전환
+                navigate("/");
+            } else {
+                alert('로그인 실패하셨습니다.');
+                idRef.current.focus();
+            }
         }
     }
 
