@@ -1,13 +1,13 @@
 import React,{useContext} from 'react';
 import { axiosData } from '../utils/dataFetch.js';
 import { CartContext } from '../context/CartContext.js';
-import { cartItemsCheck, updateCartItemQty,cartItemsAddInfo, getTotalPrice } from '../utils/cart.js';
+import { cartItemsCheck, cartItemsAddInfo, getTotalPrice } from '../utils/cart.js';
 /**
  * CartContext를 제어하는 함수를 가진 커스텀 훅
  */
 export function useCart() {
     //CartContext의 값 가져오기
-    const {setCartCount, setCartList, cartList, cartCount} = useContext(CartContext);
+    const {cartCount, setCartCount, cartList, setCartList, totalPrice, setTotalPrice} = useContext(CartContext);
 
     //장바구니 아이템 추가
     const addCart = (cartItem) => { //<-- ProductDetail 쇼핑백 추가 이벤트 처리
@@ -19,11 +19,39 @@ export function useCart() {
         const fetch = async() => {
                 const jsonData = await axiosData("/data/products.json")
                 setCartList(cartItemsAddInfo(jsonData,cartList));
-                // setTotalPrice(getTotalPrice(jsonData,cartList));
+                setTotalPrice(getTotalPrice(jsonData,cartList));
             }
             fetch();
     }
-
-    return {addCart, showCart}
+    //장바구니 수량 변경
+    const updateCart = (cid,type) => {
+        setCartList(cartList=>{
+            return cartList.map((item) => 
+                item.cid === cid ?
+                type === '+' ? {...item, qty: item.qty+1}
+                             : item.qty > 1 ? {...item, qty: item.qty-1} : item
+                : item
+            );
+        });
+    //수량 변경에 따른 전체 상품 가격 변경
+    const findItem = cartList.find((item) => item.cid === cid);
+        type === '+'?  setTotalPrice(totalPrice + findItem.price) 
+                        : findItem.qty > 1 ? setTotalPrice(totalPrice-findItem.price)
+                                        : setTotalPrice(totalPrice);
+        // cartCount 수량 변경 : Header
+        type === '+' ? setCartCount(cartCount + 1)
+                  : cartCount > 1 ? setCartCount(cartCount - 1) : setCartCount(cartCount);          
+    }
+    //장바구니 아이템 삭제
+    const removeCart = (cid,qty,price) => {
+        // const findItem = cartList.find(item => item.cid === cid);
+        
+        setCartList((cartList) => {
+            return cartList.filter(item => !(item.cid === cid));  
+        });
+        setCartCount(cartCount - qty); //Header 수량 변경
+        setTotalPrice(totalPrice - (qty * price)); //
+    }
+    return {addCart, showCart, updateCart, removeCart}
 }
 
