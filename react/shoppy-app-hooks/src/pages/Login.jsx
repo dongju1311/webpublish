@@ -1,10 +1,12 @@
-import { useRef, useState,useContext } from "react";
+import { useRef, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaLock } from "react-icons/fa";
 import { RxAvatar } from "react-icons/rx";
 import { validateFormCheck } from "../utils/validate.js"
+import { useAuth } from "../hooks/useAuth.js";
 
 export function Login() {
+    const {handleLogin} = useAuth();
 
     const navigate = useNavigate();
     const idRef = useRef(null);
@@ -19,20 +21,7 @@ export function Login() {
         setErrors({id:"", pwd:""});
     }
 
-    // const validateFormCheck = () => {
-    //     if(idRef.current.value === ''){
-    //         // alert('아이디를 입력해주세요')
-    //         setErrors({...errors, id:'아이디를 입력해주세요'})
-    //         idRef.current.focus();
-    //         return false;
-    //     } else if(pwdRef.current.value === "") {
-    //         // alert('비밀번호를 입력해주세요')
-    //         setErrors({...errors, pwd:'패스워드를 입력해주세요'})
-    //         pwdRef.current.focus();
-    //         return false;
-    //     }
-    //     return true;
-    // }
+   
 
     const handleLoginSubmit = (e) => {
         e.preventDefault();
@@ -48,11 +37,7 @@ export function Login() {
             const dpwd = "1234";
             if(did === formData.id && dpwd === formData.pwd){
                 alert('로그인 성공하셨습니다');
-                const loginInfo = {
-                    "userId" : formData.id,
-                    "token" : "asdasd12354"
-                }
-                // localStorage.setItem("loginInfo", JSON.stringify(loginInfo)); //JSON 객체를 문자형태로 전환
+                handleLogin(formData.id);
                 navigate("/");
             } else {
                 alert('로그인 실패하셨습니다.');
