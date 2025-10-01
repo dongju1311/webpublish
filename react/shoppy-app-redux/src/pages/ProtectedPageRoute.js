@@ -1,9 +1,11 @@
-import React,{useContext, useRef} from 'react';
+import {useRef} from 'react';
 import { Navigate } from 'react-router-dom';
-import { AuthContext } from '../context/AuthContext.js';
+import { useSelector } from 'react-redux';
+
 export function ProtectedPageRoute({children}) {
+    const isLogin = useSelector((state)=>state.auth.isLogin);
     const isAlert = useRef(false);
-    const {isLogin} = useContext(AuthContext);
+    // const {isLogin} = useContext(AuthContext);
 
     if(!isLogin) { //isLogin = false
         if(!isAlert.current){
@@ -11,8 +13,8 @@ export function ProtectedPageRoute({children}) {
             isAlert.current = true;
         }
         return <Navigate to="/login" replace/> //실시간 페이지 이동!!
-        isAlert.current = true;
     } else {
+        isAlert.current = true;
         return children;
     }
 }

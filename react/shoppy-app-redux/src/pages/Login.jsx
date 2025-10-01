@@ -2,16 +2,14 @@ import { useRef, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaLock } from "react-icons/fa";
 import { RxAvatar } from "react-icons/rx";
-import { validateFormCheck } from "../utils/validate.js"
-import { useAuth } from "../hooks/useAuth.js";
+import { useDispatch } from "react-redux";
+import { getLogin } from "../feature/auth/authAPI.js";
 
 export function Login() {
-    const {handleLogin} = useAuth();
-
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const idRef = useRef(null);
     const pwdRef =useRef(null);
-    // const initForm = {id:"", pwd:""}
     const [formData, setFormData] = useState({id:"", pwd:""});
     const [errors, setErrors] = useState({id:"", pwd:""});
     
@@ -31,18 +29,13 @@ export function Login() {
             setErrors: setErrors,
             errors: errors
         }
-        if(validateFormCheck(param)){
-            // console.log(formData);
-            const did = "test";
-            const dpwd = "1234";
-            if(did === formData.id && dpwd === formData.pwd){
-                alert('로그인 성공하셨습니다');
-                handleLogin(formData.id);
-                navigate("/");
-            } else {
-                alert('로그인 실패하셨습니다.');
-                idRef.current.focus();
-            }
+        const succ = dispatch(getLogin(formData,param)); //비동기식으로 처리
+        if(succ) {
+            alert("로그인 성공하셨습니다.");
+            navigate("/");
+        } else {
+            alert("로그인 실패, 확인 후 다시 진행해주세요.")
+            idRef.current.focus();
         }
     }
 

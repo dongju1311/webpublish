@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { axiosData } from '../utils/dataFetch.js';
 import { PiGiftThin } from 'react-icons/pi';
 import { ImageList } from '../components/commons/ImageList.jsx';
 import { StarRating } from '../components/commons/StarRating.jsx';
@@ -8,37 +7,25 @@ import { Detail } from '../components/detailTabs/Detail.jsx';
 import { Review } from '../components/detailTabs/Review.jsx';
 import { QnA } from '../components/detailTabs/QnA.jsx'
 import { Return } from '../components/detailTabs/Return.jsx';
-import { useProduct } from '../hooks/useProduct.js';
-import { ProductContext } from '../context/ProductContext.js';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addCart } from '../feature/cart/cartAPI.js';
+import { getProduct } from '../feature/product/productAPI.js';
 
 export function ProductDetail() {
-    const dispatch = useDispatch();
-    // const {addCart} = useCart();
-    const {filterProduct} = useProduct();
-    const { product, imgList} = useContext(ProductContext);
     const {pid} = useParams();  // { pid: 1}
+    const dispatch = useDispatch();
+    const product = useSelector((state)=>state.product.product);
+    const imgList = useSelector((state)=>state.product.product.imgList);
+
     const [size, setSize] = useState('XS');
     const tableLabels = ['DETAIL','REVIEW','Q&A','RETURN & DELIVERY'];
     const [tabName,setTabName] = useState('detail');
     const tabEventNames = ['detail','review','qna','return'];
 
     useEffect(()=> {
-        filterProduct(pid);
+        dispatch(getProduct(pid));
     }, []);
 
-    //쇼핑백 추가하기 함수
-    const handleAddCartItem = () => {
-        // alert("상품이 카트에 추가되었습니다.");
-        const cartItem = {
-            pid: product.pid,
-            size: size,
-            qty: 1
-        }
-        dispatch(addCart(cartItem)); //addCart 호출시 dispatch 전송!!
-    }
-    
 
     return (
         <div className="content">
@@ -52,7 +39,6 @@ export function ProductDetail() {
                     <li className='product-detail-title'>{product.name}</li>
                     <li className='product-detail-title'>
                         {`${parseInt(product.price).toLocaleString()}원`}
-                        {/* {parseInt(product.price).toLocaleString()}원 */}
                     </li>
                     <li className='product-detail-subtitle'>{product.info}</li>
                     <li className='product-detail-subtitle-star'>
@@ -82,7 +68,7 @@ export function ProductDetail() {
                                 className="product-detail-button order">바로 구매</button>
                         <button type="button"
                                 className="product-detail-button cart"
-                                onClick={handleAddCartItem}
+                                onClick={()=>{dispatch(addCart(product.pid, size))}}
                                 > 쇼핑백 담기</button>
                         <div type="button" className="gift">
                             <PiGiftThin />

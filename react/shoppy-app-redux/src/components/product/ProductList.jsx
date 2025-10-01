@@ -4,12 +4,19 @@ import { ProductAvatar } from './ProductAvatar';
 import { fetchData, axiosData, groupByRows } from '../../utils/dataFetch.js';
 import { ProductContext } from '../../context/ProductContext.js';
 import { useProduct } from '../../hooks/useProduct.js';
+import { useDispatch, useSelector} from 'react-redux';
+import { getProductList } from '../../feature/product/productAPI.js';
 
 export function ProductList() {
-    const {createProduct} = useProduct();
-    const {productList} = useContext(ProductContext);
+    const dispatch = useDispatch();
+    const productList = useSelector((state)=>state.product.productList);
+    // const {createProduct} = useProduct();
+    // const {productList} = useContext(ProductContext);
     const [number, setNumber] = useState(3);
-    useEffect(()=>{createProduct(number);},[number]);
+    useEffect(()=>{
+        // createProduct(number);
+        dispatch(getProductList(number));
+    },[number]);
     
     return (
         <div>
