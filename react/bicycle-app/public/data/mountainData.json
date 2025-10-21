@@ -2,7 +2,7 @@
     {
         "pid" : "1",
         "category" : "mountain",
-        "image" : "/images/mountain/27.5inch/27.5-IMPACT-30.jpg",
+        "image" : "/bicycleimages/mountain/27.5inch/27.5-IMPACT-30.jpg",
         "name" : "27.5 임팩트 30",
         "price" : 890000,
         "color" : "블랙",
@@ -16,7 +16,7 @@
     {
         "pid" : "2",
         "category" : "mountain",
-        "image" : "/images/mountain/29inch/29-IMPACT-30.jpg",
+        "image" : "/bicycleimages/mountain/29inch/29-IMPACT-30.png",
         "name" : "29 임팩트 30",
         "price" : 890000,
         "color" : "다크 카멜레온",
@@ -30,7 +30,7 @@
     {
         "pid" : "3",
         "category" : "mountain",
-        "image" : "/images/mountain/29inch/29-BULLET-FX-90_GALAXY-BLUE-1.png",
+        "image" : "/bicycleimages/mountain/29inch/29-BULLET-FX-90_GALAXY-BLUE-1.png",
         "name" : "29 불렛 FX 90",
         "price" : 7990000,
         "color" : "갤럭시 블루 그린",
@@ -44,7 +44,7 @@
     {
         "pid" : "3",
         "category" : "mountain",
-        "image" : "/images/mountain/29inch/29-BULLET-FX-90_GALAXY-BLUE-1.png",
+        "image" : "/bicycleimages/mountain/29inch/29-BULLET-FX-90_GALAXY-BLUE-1.png",
         "name" : "29 불렛 FX 90",
         "price" : 7990000,
         "color" : "갤럭시 블루 그린",
@@ -58,7 +58,7 @@
     {
         "pid" : "4",
         "category" : "mountain",
-        "image" : "/images/mountain/27.5inch/27.5-BULLET-XC-40_METAL-BLUE-BLACK.jpg",
+        "image" : "/bicycleimages/mountain/27.5inch/27.5-BULLET-XC-40_METAL-BLUE-BLACK.jpg",
         "name" : "27.5 불렛 XC 40",
         "price" : 3200000,
         "color" : "메탈 블루 / 블랙",
@@ -72,7 +72,7 @@
     {
         "pid" : "5",
         "category" : "mountain",
-        "image" : "/images/mountain/27.5inch/27.5-BULLET-XC-30_DARK-CHAMELEON.png",
+        "image" : "/bicycleimages/mountain/27.5inch/27.5-BULLET-XC-30_DARK-CHAMELEON.png",
         "name" : "27.5 불렛 XC 30",
         "price" : 2400000,
         "color" : "갤럭시 블루 그린",
@@ -86,7 +86,7 @@
     {
         "pid" : "6",
         "category" : "mountain",
-        "image" : "/images/mountain/27.5inch/27.5-SILVERLADO-90_SANDING-TITAN.png",
+        "image" : "/bicycleimages/mountain/27.5inch/27.5-SILVERLADO-90_SANDING-TITAN.png",
         "name" : "27.5 실버라도 90",
         "price" : 8250000,
         "color" : "샌딩 타탄",
@@ -100,7 +100,7 @@
     {
         "pid" : "7",
         "category" : "mountain",
-        "image" : "/images/mountain/27.5inch/27.5-SILVERLADO-50_SANDING-TITAN.png",
+        "image" : "/bicycleimages/mountain/27.5inch/27.5-SILVERLADO-50_SANDING-TITAN.png",
         "name" : "27.5 실버라도 50",
         "price" : 4100000,
         "color" : "샌딩 타탄",
@@ -114,7 +114,7 @@
     {
         "pid" : "8",
         "category" : "mountain",
-        "image" : "/images/mountain/27.5inch/27.5-IMPACT-30.jpg",
+        "image" : "/bicycleimages/mountain/27.5inch/27.5-IMPACT-30.jpg",
         "name" : "27.5 임팩트 30",
         "price" : 890000,
         "color" : "블랙",
@@ -128,7 +128,7 @@
     {
         "pid" : "9",
         "category" : "mountain",
-        "image" : "/images/mountain/29inch/29-IMPACT-30.png",
+        "image" : "/bicycleimages/mountain/29inch/29-IMPACT-30.png",
         "name" : "29 임팩트 30",
         "price" : 890000,
         "color" : "다크 카멜레온",
@@ -142,7 +142,7 @@
     {
         "pid" : "10",
         "category" : "mountain",
-        "image" : "/images/mountain/29inch/29-BULLET-FX-90_GALAXY-BLUE-1.png",
+        "image" : "/bicycleimages/mountain/29inch/29-BULLET-FX-90_GALAXY-BLUE-1.png",
         "name" : "29 불렛 FX 90",
         "price" : 7990000,
         "color" : "갤럭시 블루 그린",
@@ -156,7 +156,7 @@
     {
         "pid" : "11",
         "category" : "mountain",
-        "image" : "/images/mountain/29inch/29-BULLET-FX-90_GALAXY-BLUE-1.png",
+        "image" : "/bicycleimages/mountain/29inch/29-BULLET-FX-90_GALAXY-BLUE-1.png",
         "name" : "29 불렛 FX 90",
         "price" : 7990000,
         "color" : "갤럭시 블루 그린",
@@ -170,7 +170,7 @@
     {
         "pid" : "12",
         "category" : "mountain",
-        "image" : "/images/mountain/29inch/29-BULLET-FX-90_GALAXY-BLUE-1.png",
+        "image" : "/bicycleimages/mountain/29inch/29-BULLET-FX-90_GALAXY-BLUE-1.png",
         "name" : "29 불렛 FX 90",
         "price" : 7990000,
         "color" : "갤럭시 블루 그린",
@@ -184,7 +184,7 @@
     {
         "pid" : "13",
         "category" : "mountain",
-        "image" : "/images/mountain/29inch/29-BULLET-FX-90_GALAXY-BLUE-1.png",
+        "image" : "/bicycleimages/mountain/29inch/29-BULLET-FX-90_GALAXY-BLUE-1.png",
         "name" : "29 불렛 FX 90",
         "price" : 7990000,
         "color" : "갤럭시 블루 그린",
@@ -198,7 +198,7 @@
     {
         "pid" : "14",
         "category" : "mountain",
-        "image" : "/images/mountain/29inch/29-BULLET-FX-90_GALAXY-BLUE-1.png",
+        "image" : "/bicycleimages/mountain/29inch/29-BULLET-FX-90_GALAXY-BLUE-1.png",
         "name" : "29 불렛 FX 90",
         "price" : 7990000,
         "color" : "갤럭시 블루 그린",
@@ -212,7 +212,7 @@
     {
         "pid" : "15",
         "category" : "mountain",
-        "image" : "/images/mountain/29inch/29-BULLET-FX-90_GALAXY-BLUE-1.png",
+        "image" : "/bicycleimages/mountain/29inch/29-BULLET-FX-90_GALAXY-BLUE-1.png",
         "name" : "29 불렛 FX 90",
         "price" : 7990000,
         "color" : "갤럭시 블루 그린",
