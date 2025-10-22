@@ -1,12 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Layout } from './pages/Layout.jsx';
 import { Home } from './pages/Home.jsx';
-import { Products } from './pages/Products.jsx';
 import { Rental } from './pages/Rental.jsx';
 import { Travel } from './pages/Travel.jsx';
 import { Support } from './pages/Support.jsx';
 import { Login } from './pages/Login.jsx';
 import ScrollToTop from "./components/ScrollToTop";
+import {ProductHome} from "./pages/ProductHome";
+import {Products} from "./pages/Products";
 
 import './styles/commons.css';
 import './styles/home.css';
@@ -18,12 +19,13 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="products" element={<Products />} />
           <Route path="rental" element={<Rental />} />
           <Route path="travel" element={<Travel />} />
           <Route path="support" element={<Support />} />
           <Route path="login" element={<Login />} />
         </Route>
+          <Route path="producthome" element={<ProductHome />} />
+          <Route path="productMountain" element={<Products />} />
       </Routes>
     </BrowserRouter>
   );
