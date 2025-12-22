@@ -1,13 +1,13 @@
 import { ProductList } from "../components/product/ProductList.jsx";
 
 export function Home() {
-    return(
+    return (
         <div className="content">
             <div className="banner">
                 <h3>Shop with US</h3>
-                <p>Best Products, High Quality</p>
+                <p>Best products, High Quality</p>
             </div>
-            <ProductList/>
+            <ProductList />
         </div>
     );
 }

@@ -1,7 +1,8 @@
 
-export function initForm(initArray){
+export function initForm(initArray) {
+    
     return initArray.reduce((acc,cur) => {
-        acc[cur] = "";
-        return acc;
+            acc[cur] = "";
+            return acc;
     }, {});
 }

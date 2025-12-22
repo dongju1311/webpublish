@@ -1,10 +1,11 @@
-import { useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import "../styles/cart.css";
 import "../styles/checkoutinfo.css";
 
 export function CheckoutInfo() {   
-    const cartList = useSelector((state)=>state.cart.cartList);
-    const totalPrice = useSelector((state)=>state.cart.totalPrice);
+    const cartList = useSelector((state) => state.cart.cartList);
+    const totalPrice = useSelector((state) => state.cart.totalPrice);
+
 return (
     <div className="cart-container">
     <h2 className="cart-header"> 주문/결제</h2>

@@ -27,3 +27,4 @@ export const addCart = (pid, size) => async (dispatch) => {
     dispatch(addCartItem({"cartItem":{"pid":pid, "size":size, "qty":1}})); 
     dispatch(updateCartCount());
 }
+

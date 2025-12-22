@@ -7,10 +7,11 @@ export const AuthContext = createContext();
 export const AuthProvider = ({children}) => {
     //로그인 결과
     const [isLogin, setIsLogin] = useState(false);
-    return(
-        <AuthContext.Provider value={{isLogin,setIsLogin}}>   
+
+    return (
+        <AuthContext.Provider
+                    value={{ isLogin, setIsLogin }}>
             {children}
         </AuthContext.Provider>
-    )
+    );
 }
-

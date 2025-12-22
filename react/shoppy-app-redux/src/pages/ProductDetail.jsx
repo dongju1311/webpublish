@@ -1,31 +1,30 @@
-import React, { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { PiGiftThin } from 'react-icons/pi';
 import { ImageList } from '../components/commons/ImageList.jsx';
 import { StarRating } from '../components/commons/StarRating.jsx';
 import { Detail } from '../components/detailTabs/Detail.jsx';
 import { Review } from '../components/detailTabs/Review.jsx';
-import { QnA } from '../components/detailTabs/QnA.jsx'
+import { QnA } from '../components/detailTabs/QnA.jsx';
 import { Return } from '../components/detailTabs/Return.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { addCart } from '../feature/cart/cartAPI.js';
 import { getProduct } from '../feature/product/productAPI.js';
 
 export function ProductDetail() {
-    const {pid} = useParams();  // { pid: 1}
+    const {pid} = useParams();  
     const dispatch = useDispatch();
-    const product = useSelector((state)=>state.product.product);
-    const imgList = useSelector((state)=>state.product.product.imgList);
+    const product = useSelector((state) => state.product.product );
+    const imgList = useSelector((state) => state.product.product.imgList);
 
-    const [size, setSize] = useState('XS');
-    const tableLabels = ['DETAIL','REVIEW','Q&A','RETURN & DELIVERY'];
-    const [tabName,setTabName] = useState('detail');
-    const tabEventNames = ['detail','review','qna','return'];
-
+    const [size, setSize] = useState('XS');  
+    const [tabName, setTabName] = useState('detail');
+    const tabLabels = ['DETAIL', 'REVIEW', 'Q&A', 'RETURN & DELIVERY'];
+    const tabEventNames = ['detail', 'review', 'qna', 'return'];
+    
     useEffect(()=> {
         dispatch(getProduct(pid));
     }, []);
-
 
     return (
         <div className="content">
@@ -39,6 +38,7 @@ export function ProductDetail() {
                     <li className='product-detail-title'>{product.name}</li>
                     <li className='product-detail-title'>
                         {`${parseInt(product.price).toLocaleString()}원`}
+                        {/* {parseInt(product.price).toLocaleString()}원 */}
                     </li>
                     <li className='product-detail-subtitle'>{product.info}</li>
                     <li className='product-detail-subtitle-star'>
@@ -82,24 +82,30 @@ export function ProductDetail() {
                     </li>               
                 </ul>
             </div>
+
             <div className='product-detail-tab'>
                 <ul className='tabs'>
-                    {tableLabels && tableLabels.map((label,i)=>
-                        <li className={tabName === tabEventNames[i] ? "active" : ""}>
-                            <button type='button'
-                                    onClick={()=> setTabName(tabEventNames[i])}>{label}</button>
+                    { tabLabels && tabLabels.map((label, i) => 
+                        <li className={tabName === tabEventNames[i]? "active": "" }>
+                            <button type="button"
+                                    onClick={()=> setTabName(tabEventNames[i])}
+                                >{label}</button>
                         </li>
                     )}
                 </ul>
+
                 {tabName === "detail" 
-                                && <Detail imgList={imgList}
-                                           info={product.detailInfo}/>}
-                {tabName === "review" && <Review/>}
-                {tabName === "qna" && <QnA/>}
-                {tabName === "return" && <Return/>}
+                                &&  <Detail imgList={imgList} 
+                                            info={product.detailInfo}       />}
+                {tabName === "review" &&  <Review />}
+                {tabName === "qna" &&  <QnA />}
+                {tabName === "return" &&  <Return />}
+
             </div>
             <div style={{marginBottom:"50px"}}></div>
         </div>
+
+        
     );
 }
 

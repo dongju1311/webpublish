@@ -68,7 +68,7 @@
             ]
         },
         "work" : {
-            "categoties" : [
+            "categories" : [
                 {"name":"All", "count":"8"},
                 {"name":"Front-end", "count":"4"},
                 {"name":"Back-end", "count":"2"},

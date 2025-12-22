@@ -3,8 +3,6 @@ import { Content } from "./components/Content.jsx";
 import { Footer } from "./components/Footer.jsx";
 import { useEffect, useState } from "react";
 import "./css/style.css";
-import { Categories } from "./components/content/Categories.jsx";
-import { Testimonials } from "./components/content/Testimonials.jsx";
 
 export default function App() {
   const init = {

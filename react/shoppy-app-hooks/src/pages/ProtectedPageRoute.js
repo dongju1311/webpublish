@@ -11,8 +11,8 @@ export function ProtectedPageRoute({children}) {
             isAlert.current = true;
         }
         return <Navigate to="/login" replace/> //실시간 페이지 이동!!
-        isAlert.current = true;
     } else {
+        isAlert.current = true;
         return children;
     }
 }

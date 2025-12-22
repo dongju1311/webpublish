@@ -1,56 +1,58 @@
-import React, { useRef, useState,useMemo } from "react";
-import { validateFormCheck } from '../utils/validate.js';
-import { initForm } from "../utils/init.js";
+import React, { useState, useMemo } from 'react';
+import { validateSignupFormCheck } from '../utils/validate.js';
+import { initForm } from '../utils/init.js';
 
 export function Signup() { 
-    const initArray = ['id','pwd','cpwd','name','phone','emailName','emailDomain'];
-    // const initForm = initArray.reduce((acc,cur) => { //비동기
-    //     acc[cur] = "";
-    //     return acc;
+    const initArray = ['id', 'pwd', 'cpwd', 'name', 'phone', 'emailName', 'emailDomain'];
+    // const initForm = initArray.reduce((acc,cur) => {  //비동기
+    //         acc[cur] = "";
+    //         return acc;
     // }, {});
-    const refs = useMemo(()=>{ //Hooks는 비동기식 처리 진행
+
+    const refs = useMemo(() => {  //Hooks 비동기식 처리 진행
         return initArray.reduce((acc,cur) => {
-        acc[`${cur}Ref`] = React.createRef();
-        return acc;
+            acc[`${cur}Ref`] = React.createRef();         
+            return acc;
         }, {});
     });   
-    
-    const [form, setForm] = useState(initForm(initArray));
-    const [errors, setErrors] =useState(initForm(initArray));
+
+    const [form, setForm] = useState(initForm(initArray));  //{id:"hong", ...}
+    const [errors, setErrors] = useState({...initForm(initArray), emailDomain: ""});
+
     const handleChangeForm = (e) => {
-        const {name,value} = e.target;
-        setForm({...form,[name]:value});
-        setErrors(initForm(initArray));
+        const { name, value } = e.target;
+        setForm({ ...form, [name]: value});
+        setErrors({...initForm(initArray), emailDomain: ""});
     }
+
+    const handleResetForm = () => {
+        setForm(initForm(initArray));       
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        const param = {
-            refs:refs,
-            setErrors:setErrors
+        const param = {  refs: refs,   setErrors: setErrors }
+        if(validateSignupFormCheck(param)) {
+            console.log("submit-->", form);            
         }
-        if(validateFormCheck(param)){
-            console.log("submit=>", form);
-        }
-    }
-    const handleResetForm = () => {
-        setForm(initForm(initArray));
-    }
+    }    
 
     return (
     <div className="content">
+        
         <div className="join-form center-layout">
             <h1 className="center-title">회원가입(React)</h1>
             <form onSubmit={handleSubmit}>
                 <ul>
                     <li>
                         <label for="" ><b>아이디</b></label>
-                            <span style={{color:"red", fontSize:"0.8rem"}}>{errors.id}</span>
+                        <span style={{color:"red", fontSize:"0.8rem"}}>{errors.id}</span>
                         <div>
                             <input type="text" 
-                                    name="id"
-                                    value={form.id}
-                                    ref={refs.idRef}
-                                    onChange={handleChangeForm}                        
+                                    name="id"    
+                                    value={form.id}    
+                                    ref={refs.idRef} 
+                                    onChange={handleChangeForm}               
                                     placeholder = "아이디 입력(6~20자)" />
                             <button type="button" 
                                   > 중복확인</button>
@@ -62,11 +64,10 @@ export function Signup() {
                         <div>
                             <input type="password" 
                                     name="pwd"
-                                    value={form.pwd}
                                     ref={refs.pwdRef}
-                                    onChange={handleChangeForm}
+                                    value={form.pwd}     
+                                    onChange={handleChangeForm} 
                                     placeholder="비밀번호 입력(문자,숫자,특수문자 포함 6~12자)"/>
-            
                         </div>
                     </li>
                     <li>
@@ -74,12 +75,10 @@ export function Signup() {
                         <div>
                             <input type="password" 
                                     name="cpwd"
-                                    value={form.cpwd}
+                                    value={form.cpwd}     
                                     ref={refs.cpwdRef}
-                                    onChange={handleChangeForm}
+                                    onChange={handleChangeForm} 
                                     placeholder="비밀번호 재입력"/>
-                            
-                                    
                         </div>
                     </li>
                     <li>
@@ -87,11 +86,10 @@ export function Signup() {
                         <div>
                             <input type="text" 
                                     name="name"
-                                    value={form.name}
+                                    value={form.name}     
                                     ref={refs.nameRef}
-                                    onChange={handleChangeForm}
+                                    onChange={handleChangeForm} 
                                     placeholder="이름을 입력해주세요"/>
-                            
                         </div>
                     </li>
                     <li>
@@ -99,27 +97,28 @@ export function Signup() {
                         <div>
                             <input type="text" 
                                     name="phone"
-                                    value={form.phone}
-                                    ref={refs.phoneRef}
-                                    onChange={handleChangeForm}
+                                    value={form.phone}   
+                                    ref={refs.phoneRef}  
+                                    onChange={handleChangeForm} 
                                     placeholder="휴대폰 번호 입력('-' 포함)"/>
-                            
                         </div>
                     </li>
                     <li>
                         <label for=""><b>이메일 주소</b></label>
+                        <span style={{color:"red", fontSize:"0.8rem"}}>{errors.emailDomain}</span>
                         <div>
                             <input type="text" 
                                     name="emailName"
-                                    value={form.emailName}
-                                    ref={refs.emailNameRef}
-                                    onChange={handleChangeForm}
+                                    value={form.emailName}    
+                                    ref={refs.emailNameRef} 
+                                    onChange={handleChangeForm} 
                                     placeholder="이메일 주소"/>
                             <span>@</span>       
                             <select name="emailDomain" 
-                                    value={form.emailDomain}
-                                    ref={refs.emailDomainRef}
-                                    onChange={handleChangeForm}>
+                                    value={form.emailDomain}    
+                                    ref={refs.emailDomainRef} 
+                                    onChange={handleChangeForm} 
+                                    >
                                 <option value="default">선택</option>
                                 <option value="naver.com">naver.com</option>
                                 <option value="gmail.com">gmail.com</option>

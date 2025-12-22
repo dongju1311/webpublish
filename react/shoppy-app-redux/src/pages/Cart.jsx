@@ -1,17 +1,18 @@
 import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { RiDeleteBin6Line } from 'react-icons/ri';
-import { useDispatch, useSelector } from 'react-redux';
-import { showCart,updateCart,removeCart } from "../feature/cart/cartAPI.js"
 import '../styles/cart.css';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { showCart, updateCart, removeCart } from '../feature/cart/cartAPI.js';
 
 export function Cart() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const cartList = useSelector((state)=>state.cart.cartList);
-    const totalPrice = useSelector((state)=>state.cart.totalPrice);
-
-    useEffect(()=> {dispatch(showCart());}, []);    
+    const cartList = useSelector((state) => state.cart.cartList);
+    const totalPrice = useSelector((state) => state.cart.totalPrice);   
+      
+    useEffect(()=> {  dispatch(showCart());  }, []);    
 
     return (
         <div className='cart-container'>
@@ -36,7 +37,7 @@ export function Cart() {
                         <button className='cart-remove'
                                 onClick={()=>{dispatch(removeCart(item.cid))}}> 
                             <RiDeleteBin6Line />
-                        </button>
+                        </button> 
                     </div>
                 </div>    
             )}
@@ -68,8 +69,7 @@ export function Cart() {
                     <div className='cart-actions'>
                         <button type='button'
                                 onClick={()=>{
-                                    navigate("/checkout", {state: {cartList: cartList, 
-                                                                   totalPrice: totalPrice}});
+                                    navigate("/checkout");
                                 }}>주문하기</button>
                     </div>
                 </>
@@ -80,7 +80,8 @@ export function Cart() {
                     <img src="/images/cart.jpg" 
                          style={{width:"50%", marginTop:"20px"}} />
                 </div>
-            }
+            } 
         </div>
     );
 }
+
